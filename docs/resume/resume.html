@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!---->
+    <link rel="stylesheet" type="text/css" media="screen" href="./resume.css" />
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Antic+Slab|Nanum+Myeongjo|Pacifico" rel="stylesheet">
+    <!---->
+</head>
+<body>
+    <section class = "mx-auto" style = "width : 90vw;">
+        <div class = "d-flex align-items-center">
+            <h1 id = "logo" class = "mt-5" >Resume</h1>
+            <button onclick = "biggerFonts();" class = "btn btn-outline-secondary btn-sm mx-2 mt-5">Big Fonts</button>
+            <button onclick = "smallerFonts();" class = "btn btn-outline-secondary btn-sm mt-5">Small Fonts</button>
+
+        </div>
+        
+        <form action="">
+            <div id = "profile-div">
+                <h5 class = "my-3 left-line pl-2">PROFILE</h5>
+                <section class = "d-flex align-items-center">
+                    <div class = "form-group mr-3" style = "width: 45vw;">
+                        <!--name-->
+                        <p>First Name <input type="text" class = "applicant-name " value = "Hyejin"></p>     
+                        <p>Last Name <input type="text" class = "applicant-name " value = "Won"></p>        
+                        <!--contact information-->
+                        <p>Phone Number <input type="tel" name="" class = "contact " value = "000-0000-0000"></p>
+                        <p>E-mail <input type="email" class = "contact " value = 
+                        "whj0210@gmail.com"> </p>
+                        <!--career goal / objective-->
+                        <p>Career goal / Objective </p>
+                        <p><input type="text" class ="goal " style = "width: 100%;" value = "Write Carrer goal / Objective"></p>
+                    </div>
+                    <div class = "d-flex flex-column align-items-center" style = "width: 40vw;">
+                        <img src="" alt="" id = "profile-image" class = "mb-1" style = "width : 250px; height : 300px;"> 
+                        <!--image-->
+                        <p><input type="file" name="" id="files" class = "" onchange = "Preview(this.files[0]);"></p>
+                    </div>
+                </section>
+            </div>
+
+            
+            <hr>
+            
+            <!--education school, major, duration-->
+            <div id = "education-div">
+                <h5 id = "edu-title" class = "my-3 left-line pl-2">EDUCATION</h5>
+                <p>Duration <input type="date" id = "school-start" class = " " value = "2018-01-01"><span>~</span><input type="date" name="" id="school-end" value = "2018-01-01"> 　　
+                    School <input type="text" id = "school-name" value = "School name here"></input>　　
+                    Major <input type="text" id = "major" class = " " value = "Major name here">　　
+                    <button type="button" class = "btn btn-outline-dark btn-sm" onclick = "appendItem('education');"> ADD</button></p>
+                <div id = "edu-bunch">
+
+                </div>
+            
+            </div>
+
+            <hr>
+
+            <!--experience organization, duties, duration-->
+            <div id = "experience-div">
+                <h5 class = 'my-3 left-line pl-2'>EXPERIENCE</h5>
+                <p>Duration <input type="date" id = "exp-start" value = "2018-01-01" ><span>~</span><input type="date" name="" id="exp-end" value = "2018-01-01">　　
+                Organization <input type="text" id = "exp-organization" value = "Organization name here">　　
+                Duties <input type="text" id = "exp-duties" value = "Duties here">　　
+                <button type = "button" class = "btn btn-outline-dark btn-sm" onclick = "appendItem('experience');">ADD</button></p>
+                <div id="exp-bunch">
+
+                </div>
+            </div>
+        
+            <hr>
+            <!--skiils-->
+            <div id= "skills-div">
+                <h5 class = 'my-3 left-line pl-2'>SKILLS</h5>
+                <p>
+                    <input type="text" id = "skill" value = "Spanish">
+                    
+                    <select id = "level" class="">
+                        <option value="1">1(LOW)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5(HIGH)</option>
+                    </select>
+                    
+                    <button type = "button" class = "btn btn-outline-dark btn-sm"  onclick = "appendItem('skills');">ADD</button></p>
+                <table id = "skill-table" class = "table" style = "width : 50vw;">
+                    <thead>
+                        <th class = "text-center" style = "width : 30vw;">Skill</th>
+                        <th class = "text-center" style = "width : 20vw;">Level</th>
+                    </thead>
+                    <tbody class = "text-center" ></tbody>
+                </table>
+            </div>
+            
+            
+            <hr>
+            <!--others-->
+            <div id="others-div">
+                <h5 class = 'my-3 left-line pl-2'>OTHERS</h5>
+                <p>
+                    <input type="text" id = "others" value = "Anything more?">
+                    <button type = "button"  class = "btn btn-outline-dark btn-sm" onclick = "appendItem('others');">ADD</button>
+                </p>
+                <ul id = "others-list"></ul>
+            </div>
+            
+            <!--submit-->
+            <!--<button type="submit" onclick = "tmpSave();">SAVE</button>
+            <button type="button" onclick = "deleteCookie();">RESET</button>-->
+            <div style = "width : 100%;" class = "d-flex align-items-center justify-content-center">
+                <button type="submit" onclick = "makeResult();" class = "btn btn-dark my-5">GENERATE</button>
+            </div>
+            
+        </form>
+    </section>
+
+
+
+    <script>
+        var d_obj = new Date();
+        var time = d_obj.getTime/1000;
+
+        var photoIn;
+        var photoEvent;
+        
+
+        function appendItem(category){
+            switch(category){
+                case 'education':
+                    var mother = document.getElementById("edu-bunch");
+                    var child = document.createElement('p');
+                    var start = document.getElementById("school-start").value;
+                    var end = document.getElementById("school-end").value;
+                    var school = document.getElementById("school-name").value;
+                    var major = document.getElementById("major").value;
+
+                    child.innerHTML = '<strong><p class = "school-infos">' + start + '~' + end + '</strong>' +"　　" + school + '　|　'+ major + '</p>'
+                    mother.appendChild(child);
+                    break;
+
+                case 'experience':
+                    var mother = document.getElementById("exp-bunch");
+                    var child = document.createElement('p');
+                    var start = document.getElementById("exp-start").value;
+                    var end = document.getElementById("exp-end").value;
+                    var org = document.getElementById("exp-organization").value;
+                    var duties = document.getElementById("exp-duties").value;
+
+                    child.innerHTML = '<strong><p class = "exp-infos">' + start + '~' + end + '</strong>' +"　　" + org + '　|　'+ duties + '</p>'
+                    mother.appendChild(child);
+                    break;
+
+                case 'skills':
+                    var mother = document.getElementById("skill-table").getElementsByTagName('tbody')[0];
+                    var child = document.createElement('tr');
+                    var sk = document.getElementById('skill').value;
+                    var level = document.getElementById('level').value;
+                    child.innerHTML = '<tr><td class = "skill-infos-name">'+ sk +'</td>' + '<td class = "skill-infos-level">' + level + '</td></tr>'
+                    mother.appendChild(child);
+                    break;
+
+                case 'others':
+                    var mother = document.getElementById("others-div").getElementsByTagName('ul')[0];
+                    var child = document.createElement('li');
+                    var o = document.getElementById('others').value;
+                    child.innerHTML = o ;
+                    child.classList.add("others-infos");
+                    mother.appendChild(child);
+                    break;
+            }
+
+
+        }
+       
+        function makeResult(){
+            var profile = document.getElementById("profile-div");
+            var apt_name = profile.getElementsByClassName("applicant-name");
+            var phone = profile.getElementsByClassName("contact")[0].value;
+            var mail = profile.getElementsByClassName("contact")[1].value;
+            var goal = profile.getElementsByClassName("goal")[0].value;
+            //var self_image = profile.getElementById("profile-image");
+
+            var school = document.getElementById("edu-bunch").innerHTML;
+            var exp = document.getElementById("exp-bunch").innerHTML;
+
+            var sk = copyTable();
+            console.log(sk);
+
+            var others = document.getElementById("others-list").innerHTML;
+
+            document.open("replace");
+            document.write(
+        
+                '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">'+
+                '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">'+'<'+'/script>'+
+                '<link rel="stylesheet" type="text/css" href="./resume.css"></link>'+
+                '<link href="https://fonts.googleapis.com/css?family=Antic+Slab|Nanum+Myeongjo|Pacifico" rel="stylesheet">'+
+                '<section style = "width : 90vw;" class = "mx-auto mt-3 mb-4">'+
+                '<div class = "d-flex align-items-center justify-items-center"><img src="" alt="" id = "new-profile-image" class = "mb-1 mx-5 mt-5" style = "width : 250px; height : 300px;">' +
+                '<div style = "width: 100%;"><h1 id = "logo" class = "text-center mt-5">'+ apt_name[0].value +' '+ apt_name[1].value +'</h1>'+
+                '<h2 class = "new-contact text-center mt-5">' + phone + '</h2>' +
+                '<h2 class = "new-contact text-center">' + mail + '</h2>' +
+                '<h2 class = "new-goal text-center">' + goal + '</h2></div></div>' +
+                // '<hr>' +
+                '<h5 id = "edu-title" class = "mt-5 pl-1 left-line">EDUCATION</h5>'+
+                '<p>' + school + '</p>' + 
+                '<hr>' +
+                '<h5 class = "left-line pl-1 ">EXPERIENCE</h5>' +
+                '<p>' + exp + '</p>' + 
+                '<hr>' +
+                '<h5 class = "left-line pl-1 ">SKILLS</h5>' +
+                sk +
+                '<hr>' +
+                '<h5 class = "left-line pl-1 ">OTHERS</h5>' +
+                others +
+                '</section>'+
+                '<script>'+
+                'var new_photo = document.getElementById("new-profile-image");'+
+                'new_photo.file = photoIn;'+
+                'var reader = new FileReader();' + 
+                'new_photo.src = photoEvent.target.result;' + 
+                'reader.readAsDataURL(file);' + 
+                '<'+'/script>'
+            );
+            document.close();
+        }
+
+        function copyTable(){
+            var sk = document.getElementById("skill-table");
+            var row_num = sk.rows.length;
+
+            var ret_table = document.createElement('table');
+
+            var i;
+            var rows = '<thead class = "text-center">' + '<th style = "width: 30vw;">' + 'Skill' +'</th>'+ '<th style = "width: 20vw;">' + 'Level' +'</th>'+'</thead>' + "\n" + '<tbody class = "text-center">';
+            for (i = 1; i < row_num; i++) { 
+                rows += sk.rows[i].innerHTML;
+                console.log(rows[i]);
+            }
+            rows+= "</tbody>"
+
+            ret_table.innerHTML = rows;
+                    
+            return '<table class = "table" style = "width: 50vw;">' + ret_table.innerHTML + '</table>';
+        }
+
+        function Preview(file){
+            console.log(file);
+            var profile_img = document.getElementById("profile-image");
+            profile_img.file = file;
+
+            var reader = new FileReader();
+            reader.onload = function(e) { 
+                photoEvent = e;
+                profile_img.src = e.target.result; 
+            };
+            
+            reader.readAsDataURL(file);
+        };
+
+        function biggerFonts(){
+            document.getElementsByTagName('body')[0].style.fontSize = "larger";
+        }
+        function smallerFonts(){
+            document.getElementsByTagName('body')[0].style.fontSize ="smaller";
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+

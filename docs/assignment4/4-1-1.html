@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html style = "width : 100% ; height : 100%;">
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HCI Assignment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body style = "width : 100% ; height : 100%;">
+<div class = "container-fluid" style = "width: 100%">
+    <div class = "row">
+        <nav class = "col-xl-2 col-lg-2 pt-5 px-0">
+            <div>
+                <p class = "text-right mr-2">원혜진</p>
+                <p class = "text-right mr-2" style = "font-size: 0.7em">영어영문학과 2015130741</p>
+            </div>
+            <hr class = "nav-line"> 
+            <div style = "font-size: 0.9em">        
+                <a href="../assignment1.html"><p class = "nav-item pl-2 py-1">180918_Assignment1</p></a>
+                <a href="../assignment2.html"><p class = "nav-item pl-2 py-1">180920_Assignment2</p></a>
+                <a href="../assignment3.html"><p class = "nav-item pl-2 py-1">181022_Assignment3</p></a>
+                <a href="../resume/resume.html" target="_blank" rel="noopener noreferrer"><p class = "nav-item pl-2 py-1">181102_Resume</p></a>
+                <a href="./4-1-1.html"><p class = "nav-item pl-2 py-1">181113_Assignment4-1-1</p></a>
+            </div>
+        </nav>
+    
+        <div class = "col-xl-10 col-lg-10 px-0">
+            <div class = "py-5 tree-background title-section d-flex flex-column align-items-center justify-content-center">
+                <h1 class = "mb-5">Human Computer Interaction</h1>
+                <h5>181113_Assignment4-1-1</h3>
+                <h5>Construct GUI Elements</h3>
+            </div>
+            <canvas id="myCanvas" width = 1000 height = 1000></canvas>
+        </div>
+    </div>
+
+    <script>
+        var id = 'myCanvas'
+
+        create_window(id, "Window 1", 10, 10, 220, 200);
+        create_window(id, "Window 2", 400, 10, 220, 200);
+
+
+        create_button (id, 'button1', 10, 300, 100, 40);
+        create_button (id, 'button2', 200, 300, 100, 40);
+
+        create_textbox (id, 'textbox1, write any text here!', 10, 400, 300, 30);
+
+
+        create_pulldown(id, 'Upper Menu', 500, 300, 150, 60);
+
+        // https://codepen.io/zz85/pen/gbOoVP
+
+        //function for making window, close, hide button
+        function create_window (ID, window_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(247,235,213)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //draw window bar
+            context.fillStyle = 'rgb(34,28,56)'; 
+            context.fillRect(position_x, position_y, width, height/7); 
+
+            //window_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            context.fillText(window_title, position_x + 20, position_y + 18, position_x + width - height / 7 * 2);
+            
+            //hide button
+            var hide_start = position_x + width - height / 7 * 2;
+            context.fillStyle = 'rgb(242,210,163)'; 
+            context.fillRect(hide_start, position_y, height/7, height/7); 
+            //close button
+            var close_start = position_x + width - height / 7;
+            context.fillStyle = 'rgb(80,56,54)'; 
+            context.fillRect(close_start, position_y, height/7, height/7); 
+
+        
+            //draw _
+            context.beginPath();
+            context.moveTo(hide_start + 4, position_y + height/7 - 8);
+            context.lineTo(close_start - 4, position_y + height/7 - 8);
+            context.stroke();
+            context.closePath();
+
+            //draw X
+            context.beginPath();
+            // \
+            context.moveTo(close_start + 3, position_y + 3);
+            context.lineTo(position_x + width - 3, position_y + height/7 - 3);
+            // /
+            context.moveTo(position_x + width - 3, position_y + 3);
+            context.lineTo(close_start + 3, position_y + height/7 - 3);
+            context.stroke();
+            context.closePath();
+        }
+           
+            
+        function create_button (ID, button_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(242,210,163)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //window_title text
+            context.fillStyle = 'rgb(0,0,0)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(button_title, position_x + 20, position_y + 25, position_x + width);
+
+        }
+
+        function create_textbox (ID, textbox_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw textbox background
+            context.fillStyle = 'rgb(80,56,54)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //textbox_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(textbox_title, position_x + 20, position_y + 20, position_x + width);
+
+        }
+
+        function create_pulldown(ID, pulldown_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(34,28,56)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //window_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(pulldown_title, position_x + 30, position_y + 35, position_x + width);
+            
+            var submenu_x = position_x + 10;
+            var submenu_y = position_y + height -10;
+            
+            add_submenu(ID, "submenu 1", submenu_x, submenu_y, width, height);
+            submenu_y+= height;
+            add_submenu(ID, "submenu 2", submenu_x, submenu_y, width, height);
+            submenu_y+= height;
+            add_submenu(ID, "submenu 3", submenu_x, submenu_y, width, height);
+    
+        }
+        
+        function add_submenu(ID, submenu_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(34,28,56, 0.8)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //window_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(submenu_title, position_x + 30, position_y + 35, position_x + width);
+            
+        }
+
+        
+    </script>
+</body>
+</html>

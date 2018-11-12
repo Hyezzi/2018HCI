@@ -1,0 +1,54 @@
+ 
+body{
+    color: rgab(63,63,63,1);
+    font-family: 'Antic Slab', serif;
+}
+#logo{
+    color: rgba(127,127,127,1);
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+}
+
+#applicant-name{
+    color: rgba(127,127,127,1);
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+    text-align: center;
+}
+
+
+#files{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.left-line{
+    border-left: 3px solid rgba(123, 129, 137,1);
+    height:23px;
+}
+
+input{
+    border: 0px;
+    border-bottom: 1px solid  rgba(123, 129, 137, 0.5);
+}
+
+hr{
+    border : 1px solid rgba(224,224,224,1);
+}
+
+button{
+    border: 1px solid rgba(205, 236, 236);
+    
+}
+
+.input-label{
+    font-family: 'Bree Serif', serif;
+}
+
+.new-contact{
+    font-size: 1em;
+}
+
+.new-goal{
+    font-size: 1em;
+}
+
