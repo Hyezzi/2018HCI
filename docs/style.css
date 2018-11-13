@@ -9,8 +9,8 @@ html, body{
     height: 100%;
 }
 body{
-    font-family: 'NanumBarunGothic';
-    color: rgba(139,140,140,1);
+    /*font-family: 'NanumBarunGothic';*/
+    /*color: rgba(139,140,140,1);*/
 }
 .phone-image{
     width: 14vw;
@@ -26,16 +26,15 @@ button{
     border-radius: 20px;
 }
 
-.tree-background{
-    background-image: url("./assets/tree_image.jpg");
+.background{
+    background-image: url("./assets/background1.jpg");
     background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    /*background-size: cover; /* Resize the background image to cover the entire container */
+    background-size: 100% 100%;
+    background-position: center center;   
 }
 
-nav{
-    background-color: rgba(34, 38, 41, 1);
-    color: white;
-}
+
 
 .comment{
     color: grey;
@@ -43,8 +42,9 @@ nav{
 }
 
 .title-section{
-    height: 60vh;
-    color: rgba(34, 38, 41, 1);
+    height: 70vh;
+    /*color: rgba(34, 38, 41, 1);*/
+    color: white;
 }
 
 .nav-line{
@@ -99,3 +99,27 @@ button{
     background-color: rgba(54, 82, 26, 1);
     color: white;
 }
+/*nav-bar*/
+nav{
+    background-color: rgba(34, 38, 41, 1);
+    color: white;
+}
+.fa-1x {
+    font-size: 1.5rem;
+}
+.navbar-toggler.toggler-example {
+    cursor: pointer;
+}
+.dark-blue-text {
+    color: #0A38F5;
+}
+.dark-pink-text {
+    color: #AC003A;
+}
+.dark-amber-text {
+    color: #ff6f00;
+}
+.dark-teal-text {
+    color: #004d40;
+}
+/*nav-bar*/
