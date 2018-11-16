@@ -5,22 +5,34 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot'); 
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype'); } 
 
-html, body{
+/* html, body{
     height: 100%;
-}
+} */
+
+/*font 시작*/
 body{
     font-family: 'NanumBarunGothic';
     color: rgba(139,140,140,1);
 }
-.phone-image{
-    width: 14vw;
-    height: 55vh;
+
+
+p{
+    line-height: 1.7em;
+    font-size : 1em;
 }
 
-.pc-image{
-    width: 33vw;
-    height: 44vh;
+div a p{
+    font-size : 0.85em;
 }
+
+h2{
+    font-size : 1em;
+}
+
+h4{
+    font-size : 1em;
+}
+/*font 끝*/
 
 button{
     border-radius: 20px;
@@ -34,13 +46,6 @@ button{
     background-position: center center;   
 }
 
-
-
-.comment{
-    color: grey;
-    font-size: 0.9em;
-}
-
 .title-section{
     height: 70vh;
     /*color: rgba(34, 38, 41, 1);*/
@@ -51,13 +56,7 @@ button{
     border-color: white;
 }
 
-p{
-    line-height: 1.9em;
-}
 
-.indent{
-    text-indent: 2em;
-}
 
 a { 
     text-decoration: none; 
@@ -128,6 +127,15 @@ nav{
 
 
 /*image-size*/
+.pc-image{
+    width: 33vw;
+    height: 44vh;
+}
+
+.phone-image{
+    width: 14vw;
+    height: 55vh;
+}
 .scenario-image{
     width: 45vw;
     height: 50vh;
