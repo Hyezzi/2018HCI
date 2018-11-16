@@ -14,23 +14,18 @@ body{
     font-family: 'NanumBarunGothic';
     color: rgba(139,140,140,1);
 }
-
-
 p{
     line-height: 1.7em;
     font-size : 1em;
 }
-
 div a p{
     font-size : 0.85em;
 }
-
 h2{
-    font-size : 1em;
+    font-size : 1.5em;
 }
-
 h4{
-    font-size : 1em;
+    font-size : 1.3em;
 }
 /*font 끝*/
 
