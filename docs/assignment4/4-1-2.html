@@ -1,35 +1,394 @@
 <!DOCTYPE html>
-<html>
+<html style = "width : 100% ; height : 100%;">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HCI Assignment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!--font -->
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 </head>
 <body>
+    <div class = "container-fluid" style = "width: 100%">
+        <div class = "row">
+            <nav class = "col-xl-2 col-lg-2 pt-5 px-0">
+                <div>
+                    <p class = "text-right mr-2">원혜진</p>
+                    <p class = "text-right mr-2" style = "font-size: 0.7em">영어영문학과 2015130741</p>
+                </div>
+                <hr class = "nav-line"> 
+                <div style = "font-size: 0.9em">        
+                    <a href="../index.html"><p class = "nav-item pl-2 py-1">180918_Assignment1</p></a>
+                    <a href="../assignment2.html"><p class = "nav-item pl-2 py-1">180920_Assignment2</p></a>
+                    <a href="../assignment3.html"><p class = "nav-item pl-2 py-1">181022_Assignment3</p></a>
+                    <a href="../resume/resume.html" target="_blank" rel="noopener noreferrer"><p class = "nav-item pl-2 py-1">181102_Resume</p></a>
+                    <a href="./4-1-1.html"><p class = "nav-item pl-2 py-1">181113_Assignment4-1-1</p></a>
+                    <a href="./4-2-1.html"><p class = "nav-item pl-2 py-1">181116_Assignment 4-2-1</p></a>
+                    <a href="./4-1-2.html"><p class = "nav-item pl-2 py-1">181116_Assignment 4-1-2</p></a>
+                </div>
+            </nav>
+        
+            <div class = "col-xl-10 col-lg-10 px-0">
+                <div class = "py-5 background title-section d-flex flex-column align-items-center justify-content-center">
+                    <h1 class = "mb-5">Human Computer Interaction</h1>
+                    <h5>181120_Assignment4-1-2</h5>
+                    <h5>Draw GUI Element Trees</h5>
+                </div>
+                <canvas id="myCanvas" width = 1050 height = 1000></canvas>
+            </div>
+        </div>
+    </div>
+    
+    
+
     <script>
-        struct node{
-            var id;
-            //node list next
+        var canvasID = "myCanvas";    
+        var id = 0;
+
+        var max_node_width = 230;
+        var max_node_height = 180;
+        var lineLength = 50;
+
+        var tree = new _Tree("window");
+        tree.add_node("button", 0, tree.search_BF);
+        tree.add_node("textbox", 0, tree.search_BF);
+        tree.add_node("pulldown", 1, tree.search_BF);
+        tree.add_node("pulldown", 2, tree.search_BF);
+        tree.delete_node(4, 2, tree.search_BF);
+        tree.add_node("button", 0, tree.search_BF);
+        tree.add_node("textbox", 5, tree.search_BF);
+        tree.add_node("pulldown", 5, tree.search_BF);
+        tree.add_node("window", 2, tree.search_BF);
+
+        //draw tree
+        traverse4draw(tree);
+
+        /*Queue*/
+        function _Queue() {
+            this.q = []
+            this.enqueue = function enqueue(element) {
+                this.q.push(element)
+            }
+            
+            this.dequeue = function dequeue() {
+                return this.q.shift()
+            }
+        
+            this.front = function front() {
+                return this.q[0]
+            }
+            this.back = function back() {
+                return this.q[this.q.length - 1]
+            }
+        }
+        
+        
+        function _Node(graphicElement){
+            this.id = id;
+            this.graphicElement = graphicElement;
+            this.parent = null;
+            this.dot_x = 30;
+            this.dot_y = 30;
+            this.children = [];
+        }
+        
+        function _Tree(graphicElement) {
+            var node = new _Node(graphicElement);
+            this._root = node;
+            id += 1;
+            
+            this.search_BF = function(callback) {
+
+                var queue = new _Queue();
+                
+                queue.enqueue(this._root);
+            
+                currentTree = queue.dequeue();
+            
+                while(currentTree){
+                    for (var i = 0, length = currentTree.children.length; i < length; i++) {
+                        queue.enqueue(currentTree.children[i]);
+                    }
+
+                    callback(currentTree);
+
+                    currentTree = queue.dequeue();
+                }
+            };
+            
+            this.search_DF = function(callback) {    
+                (function recurse(currentNode) {
+                    for (var i = 0, length = currentNode.children.length; i < length; i++) {
+                        recurse(currentNode.children[i]);
+                    }
+                    callback(currentNode);
+                })(this._root);
+            };
+            
+            this.contains = function(callback, traversal) {
+                traversal.call(this, callback);
+            };
+
+            this.add_node = function(graphicElement, parentID, traversal) {
+                var child = new _Node(graphicElement),
+                    parent = null,
+                    callback = function(node) {
+                        if (node.id === parentID) {
+                            parent = node;
+                        } 
+                    };
+            
+                this.contains(callback, traversal);
+            
+                if (parent) {
+                    parent.children.push(child);
+                    child.parent = parent;
+                    id += 1;
+                } else {
+                    throw new Error('Cannot add node to a non-existent parent.');
+                }
+            };
+
+            this.delete_node = function(childID, parentID, traversal) {
+                var tree = this,
+                    parent = null,
+                    childToRemove = null,
+                    index;
+            
+                var callback = function(node) {
+                    if (node.id === parentID) {
+                        parent = node;
+                    }
+                };
+            
+                this.contains(callback, traversal);
+            
+                if (parent) {
+                    index = findIndex(parent.children, childID);
+            
+                    if (index === undefined) {
+                        throw new Error('Node to remove does not exist.');
+                    } else {
+                        childToRemove = parent.children.splice(index, 1);
+                    }
+                } else {
+                    throw new Error('Parent does not exist.');
+                }
+            
+                return childToRemove;
+            };
+        }
+
+        function findIndex(arr, targetID) {
+            var index;
+        
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].id === targetID) {
+                    index = i;
+                }
+            }
+        
+            return index;
+        }
+
+
+        function traverse4draw(tree) {
+            console.log("starting traverse for draw...");
+
+            //use bfs to set x, y of elements
+            var queue = new _Queue();
+
+            queue.enqueue(tree._root);
+            currentTree = queue.dequeue();
+
+            //draw root first
+            drawGUI(currentTree);                    
+            
+
+            while(currentTree){
+                for (var i = 0, length = currentTree.children.length; i < length; i++) {
+                    queue.enqueue(currentTree.children[i]);
+
+                    //draw each children
+                    if(i != 0)
+                        currentTree.children[i].dot_x = currentTree.children[i-1].dot_x + max_node_width + 20;
+                    else
+                        currentTree.children[i].dot_x = currentTree.dot_x;
+                    
+                    currentTree.children[i].dot_y = currentTree.dot_y + max_node_height + lineLength;
+
+                    drawGUI(currentTree.children[i]);                    
+                }
+
+                currentTree = queue.dequeue();
+            }
         };
 
-        function create_root(node){
+        function drawGUI(node){
+         
+            var child_x = node.dot_x;
+            var child_y = node.dot_y;
+
+            //draw branch only if not root
+            if(node.id != 0){
+                var parent_x = node.parent.dot_x;
+                var parent_y = node.parent.dot_y;
+
+                draw_line(canvasID, child_x + max_node_width/2, child_y, parent_x + max_node_width/2, child_y - lineLength);    
+            }
+            
+            switch (node.graphicElement){
+                case "window" :
+                    create_window (canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, max_node_height);
+                    break;
+                case "button" : 
+                    create_button(canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, 100);
+                    break;
+                case "textbox" : 
+                    create_textbox(canvasID,  `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, 30);
+                    break;
+                case "pulldown" : 
+                    create_pulldown(canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, 50);
+                    break;
+            }
 
         }
-        function add_node(node){
+
+        //function for making window, close, hide button
+        function create_window (ID, window_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(247,235,213)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //draw window bar
+            context.fillStyle = 'rgb(34,28,56)'; 
+            context.fillRect(position_x, position_y, width, height/7); 
+
+            //window_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            context.fillText(window_title, position_x + 20, position_y + 18, position_x + width - height / 7 * 2);
+            
+            //hide button
+            var hide_start = position_x + width - height / 7 * 2;
+            context.fillStyle = 'rgb(242,210,163)'; 
+            context.fillRect(hide_start, position_y, height/7, height/7); 
+            //close button
+            var close_start = position_x + width - height / 7;
+            context.fillStyle = 'rgb(80,56,54)'; 
+            context.fillRect(close_start, position_y, height/7, height/7); 
+
+        
+            //draw _
+            context.beginPath();
+            context.moveTo(hide_start + 4, position_y + height/7 - 8);
+            context.lineTo(close_start - 4, position_y + height/7 - 8);
+            context.stroke();
+            context.closePath();
+
+            //draw X
+            context.beginPath();
+            // \
+            context.moveTo(close_start + 3, position_y + 3);
+            context.lineTo(position_x + width - 3, position_y + height/7 - 3);
+            // /
+            context.moveTo(position_x + width - 3, position_y + 3);
+            context.lineTo(close_start + 3, position_y + height/7 - 3);
+            context.stroke();
+            context.closePath();
+        }
+           
+        function create_button (ID, button_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(242,210,163)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //window_title text
+            context.fillStyle = 'rgb(0,0,0)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(button_title, position_x + 20, position_y + 25, position_x + width);
 
         }
-        function delete_node(tree){
+
+        function create_textbox (ID, textbox_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw textbox background
+            context.fillStyle = 'rgb(80,56,54)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //textbox_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(textbox_title, position_x + 20, position_y + 20, position_x + width);
 
         }
 
-        //BFS? 겹 끼리 비교하기 좋도록?
-        function search_node(){
+        function create_pulldown(ID, pulldown_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(34,28,56)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //window_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(pulldown_title, position_x + 30, position_y + 35, position_x + width);
+            
+            var submenu_x = position_x + 10;
+            var submenu_y = position_y + height -10;
+            
+            add_submenu(ID, "submenu 1", submenu_x, submenu_y, width, height);
+            submenu_y+= height;
+            add_submenu(ID, "submenu 2", submenu_x, submenu_y, width, height);
+            submenu_y+= height;
+            add_submenu(ID, "submenu 3", submenu_x, submenu_y, width, height);
+    
+        }
+        
+        function add_submenu(ID, submenu_title, position_x, position_y, width, height){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+            
+            //draw window background
+            context.fillStyle = 'rgb(34,28,56, 0.8)'; 
+            context.fillRect(position_x, position_y, width, height);   
+
+            //window_title text
+            context.fillStyle = 'rgb(255,255,255)';
+            context.font = '15px sans-serif';
+            
+            context.fillText(submenu_title, position_x + 30, position_y + 35, position_x + width);
             
         }
 
+        function draw_line(ID, from_x, from_y, to_x, to_y){
+            var canvas = document.getElementById(ID);
+            var context = canvas.getContext('2d');
+
+            context.beginPath();
+            context.moveTo(from_x, from_y);
+            context.lineTo(to_x, to_y);
+            context.stroke();
+            context.closePath();
+        
+        }
+  
     </script>
 </body>
 </html>

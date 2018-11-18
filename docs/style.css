@@ -152,3 +152,8 @@ nav{
     font-size: 0.9em;
 }
 /*문맥 정리*/
+
+#download-button{
+    border : 1px solid white;
+    color: white;   
+}
