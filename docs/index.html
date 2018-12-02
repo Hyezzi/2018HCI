@@ -6,41 +6,79 @@
     <title>HCI Assignment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--font-->
+    <!--fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!--font -->
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
 </head>
 <body>
+    <!--Navbar-->
+    <nav class="navbar">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="./index.html">Human Computer Interaction
+            <span style = "font-size : 0.6em;">영어영문학과 2015130741 원혜진</span>
+        </a>
+    
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fa fa-bars fa-1x"></i></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="./index.html"><span class = "nav-link">180918_Assignment 1</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment2.html"><span class = "nav-link">180920_Assignment 2</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment3.html"><span class = "nav-link">181022_Assignment 3</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./resume/resume.html" target="_blank" rel="noopener noreferrer"><span class = "nav-link">181102_Resume</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment4/4-1-1.html"><span class = "nav-link">181113_Assignment 4-1-1</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment4/4-2-1.html"><span class = "nav-link">181116_Assignment 4-2-1</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment4/4-1-2.html"><span class = "nav-link">181120_Assignment 4-1-2</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment4/4-2-2.html"><span class = "nav-link">181116_Assignment 4-2-2</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment4/4-1-3.html"><span class = "nav-link">181204_Assignment 4-1-3</span></a>
+            </li>    
+        </ul>
+          <!-- Links -->
+      
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+    <!--/.Navbar-->
     <div class = "container-fluid" style = "width: 100%">
         <div class = "row">
-            <nav class = "col-xl-2 col-lg-2 pt-5 px-0">
-                <div>
-                    
-                    <p class = "text-right mr-2">원혜진</p>
-                    <p class = "text-right mr-2" style = "font-size: 0.7em;">영어영문학과 2015130741</p>
-                </div>
-                <hr class = "nav-line"> 
-                <div style = "font-size: 0.9em">
-                    <a href="./index.html"><p class = "nav-item pl-2 py-1">180918_Assignment1</p></a>
-                    <a href="./assignment2.html"><p class = "nav-item pl-2 py-1">180920_Assignment2</p></a>
-                    <a href="./assignment3.html"><p class = "nav-item pl-2 py-1">181022_Assignment3</p></a>
-                    <a href="./resume/resume.html" target="_blank" rel="noopener noreferrer"><p class = "nav-item pl-2 py-1">181102_Resume</p></a>
-                    <a href="./assignment4/4-1-1.html"><p class = "nav-item pl-2 py-1">181113_Assignment 4-1-1</p></a>
-                    <a href="./assignment4/4-2-1.html"><p class = "nav-item pl-2 py-1">181116_Assignment 4-2-1</p></a>
-                    <a href="./assignment4/4-1-2.html"><p class = "nav-item pl-2 py-1">181116_Assignment 4-1-2</p></a>
-                    <a href="./assignment4/4-2-2.html"><p class = "nav-item pl-2 py-1">181127_Assignment 4-2-2</p></a>
-                </div>
-            </nav>
-
-            <div class = "col-xl-10 col-lg-10 px-0">
-                <div class = "py-5 background title-section d-flex flex-column align-items-center justify-content-center" style = "width : 100%;">
-                    <h1 class = "mb-5">Human Computer Interaction</h1>
-                    <h5>180918_Assignment1</h5>
-                    <h5>Interface Review</h5>
-                    <br>
-                    <a download href = "./pdf-files/1.pdf"  id = "download-button" class = "px-2 py-1">Download PDF <i class="fas fa-download"></i></a>
-                </div>
+            <div class = "col-xl-12 col-lg-12 px-0 mx-auto background title-section d-flex flex-column align-items-center justify-content-center" style = "width : 100%;">
+                <p class = "mb-1 main-title-font">Assignment1</p>
+                <p class = "main-subtitle-font">Interface Review</p>
+                <br>
+                <a download href = "./pdf-files/1.pdf"  id = "download-button" class = "px-2 py-1">Download PDF <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-xl-10 col-lg-10 mx-auto">
                 <div class = "mx-4">
                     <h5 class = "text-center mt-5 mb-5">1</h5>
                     <p class = "indent">
@@ -112,8 +150,10 @@
         </div>   
     </div>
 
-    <footer>
-
+    <footer class = "bg-dark">
+        <p class = "text-center text-white pt-5 mt-5 mb-1">Human Computer Interaction</p>
+        <p class = "text-center text-white mb-1">인간컴퓨터상호작용</p>
+        <p class = "text-center text-white pb-5" style = "margin: 0px;">2018-2R</p>
     </footer>    
 </body>
 
