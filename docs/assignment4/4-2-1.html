@@ -8,31 +8,70 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <!--font -->
-        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+        <!--font-->
+        <!--fontawesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!--Bootstrap-->
 </head>
 <body style = "width : 100% ; height : 100%;">
-<div class = "container-fluid" style = "width: 100%">
-    <div class = "row">
-        <nav class = "col-xl-2 col-lg-2 pt-5 px-0">
-            <div>
-                <p class = "text-right mr-2">원혜진</p>
-                <p class = "text-right mr-2" style = "font-size: 0.7em">영어영문학과 2015130741</p>
-            </div>
-            <hr class = "nav-line"> 
-            <div style = "font-size: 0.9em">        
-                <a href="../index.html"><p class = "nav-item pl-2 py-1 ">180918_Assignment1</p></a>
-                <a href="../ssignment2.html"><p class = "nav-item pl-2 py-1 ">180920_Assignment2</p></a>
-                <a href="../assignment3.html"><p class = "nav-item pl-2 py-1">181022_Assignment3</p></a>
-                <a href="../resume/resume.html" target="_blank" rel="noopener noreferrer"><p class = "nav-item pl-2 py-1">181102_Resume</p></a>
-                <a href="./4-1-1.html"><p class = "nav-item pl-2 py-1">181113_Assignment 4-1-1</p></a>
-                <a href="./4-2-1.html"><p class = "nav-item pl-2 py-1">181116_Assignment 4-2-1</p></a>
-                <a href="./4-1-2.html"><p class = "nav-item pl-2 py-1">181116_Assignment 4-1-2</p></a>
-                <a href="./4-2-2.html"><p class = "nav-item pl-2 py-1">181127_Assignment 4-2-2</p></a>
-            </div>
-        </nav>
+    <!--Navbar-->
+    <nav class="navbar">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="./index2.html">Human Computer Interaction
+            <span style = "font-size : 0.6em;">영어영문학과 2015130741 원혜진</span>
+        </a>
     
-        <div class = "col-xl-10 col-lg-10 px-0">
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fa fa-bars fa-1x"></i></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="../index2.html"><span class = "nav-link">180918_Assignment 1</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="../assignment2.html"><span class = "nav-link">180920_Assignment 2</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="../assignment3.html"><span class = "nav-link">181022_Assignment 3</span></a>
+            </li>
+            <li class="nav ./resume/resume.html" target="_blank" rel="noopener noreferrer"><span class = "nav-link">181102_Resume</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./assignment4/4-1-1.html"><span class = "nav-link">181113_Assignment 4-1-1</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./4-2-1.html"><span class = "nav-link">181116_Assignment 4-2-1</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./4-1-2.html"><span class = "nav-link">181120_Assignment 4-1-2</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./4-2-2.html"><span class = "nav-link">181116_Assignment 4-2-2</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="./4-1-3.html"><span class = "nav-link">181204_Assignment 4-1-3</span></a>
+            </li>    
+        </ul>
+            <!-- Links -->
+        
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+    <!--/.Navbar-->
+    <div class = "container-fluid" style = "width: 100%">
+        <div class = "row">
+            <div class = "col-xl-12 col-lg-12 px-0">
             <div class = "py-5 background title-section d-flex flex-column align-items-center justify-content-center">
                 <h1 class = "mb-5">Human Computer Interaction</h1>
                 <h5>181116_Assignment 4-2-1</h5>
@@ -40,69 +79,85 @@
                 <br>
                 <a download href = "../pdf-files/4-2-1_HCI Design.pdf" id = "download-button" class = "px-2 py-1">Download PDF <i class="fas fa-download"></i></a>
             </div>
+            </div>
+        </div>
 
-            <div class = "mx-4">
-                <h2 class = "text-center mt-5">Momentrail; 여행자를 위한 사진 정리 어플리케이션</h2>
-                <h2 class = "mt-5 article-title-font">1. 어플리케이션 개요</h2>
-                <p class = "indent2 mx-4">
-                    Momentrail은 여행자를 위한 사진 정리 어플리케이션입니다. 여행을 갔다 온 뒤, 많은 사람들이 핸드폰 또는 카메라에 있는 사진을 컴퓨터에 옮겨서 저장합니다. 컴퓨터에 옮겨진 사진을 다시 날짜 또는 장소 별로 재분류해야 한다는 어려움에 착안하여 구상하였습니다. 사용자는 ‘기간 우선 모드’와 ‘장소 우선 모드’를 선택할 수 있습니다. 전자의 경우, 기간을 기준으로 정리한 상위 폴더 아래에 장소 별 하위 폴더가 존재하여, 하루에 여러 경로를 오간 여행자에게 적합합니다. 후자의 경우, 장소를 기준으로 정리한 상위 폴더 아래에 기간 별 하위 폴더가 존재하여, 한 장소에 오래 머문 여행자에게 적합합니다. 
-                </p>
-                <hr>
-                <h2 class = "mt-5 article-title-font">2. 사용자 분석 / 조사 (User Analysis / Research)</h2>    
-                <strong><p class = "indent article-subtitle-font">2.1. 대상 사용자(Target User)</p></strong>
-                <p class = "indent2 mx-4">
-                    주요 사용자(Main User)는 여가를 위해 여행하는 일이 많은 사람, 20대 입니다. 부차적 사용자(Secondary User)는 가족과의 여행이 비교적 잦은 30대 부부입니다. 20대~30대는 디지털 기기 친밀도가 높습니다. 때문에, 사용자의 숙련도는 중급자(Intermediate)로 가정할 수 있습니다. 어플리케이션의 동작에서 가이드라인을 항상 제공할 필요는 없지만, 추후 진행 과정을 충분히 유추할 수 있는 형태로 제작해야 합니다. 
-                </p>
-                <strong><p class = "indent article-subtitle-font">2.2. 사용자 주요 요구사항(Major Direct User Requirement)</p></strong>
-                <p class = "indent2 mx-4">
-                    여행을 갔다 온 사람들은 사진을 정리할 필요성에 느끼고 있었으나, 그 양이 방대해서 정리하기 부담스럽다는 생각을 합니다. 기존의 방식은 인물 / 장소 / 날짜의 방식이 존재한다. 인물 정리 방식에 대해서는 정확도가 떨어지기에 그 만족도가 낮습니다. 장소와 날짜의 경우, 정확도가 높다 만족도가 높았습니다. 
-                </p>
-                <p class = "indent2 mx-4">
-                    장소와 날짜 기준 분류 방식에는 크게 두 가지의 보완점이 요구되었습니다. 첫번째는 두 가지를 융합할 수 있으면 좋겠다는 의견이었습니다. 기존에는 둘 중에 한 가지 방식만 사용해서 여행했던 경로를 따라 추억을 떠올리기 힘들다는 의견이 있었습니다. 두번째로 요구된 사항은 폴더 간 사진 중복 등장의 방지였습니다. 아이폰의 앨범을 예로 들자면, 동일한 사진을 장소 폴더로 들어가도 볼 수 있으며, 일반 날짜 별 폴더에서도 볼 수 있습니다. 이렇듯 사진이 여러 곳에 중복하여 존재하는 경우, 메모리를 두 번 차지하는 것이 아닐지라도, 인지적 측면에서 사용자가 혼란을 느끼는 것으로 나타났습니다. 특정 사진을 찾을 때 찾아갈 수 있는 방식으로서 날짜 폴더와 장소 폴더 두 가지가 떠올라 선택의 과정을 거쳐야 하기 때문입니다.  
-                </p>
-                <strong><p class = "indent article-subtitle-font">2.3. 인지적, 인체 공학적 요구사항(Cognitive, ergonomic requirements)</p></strong>
-                <p class = "indent2 mx-4">
-                    사용 단계를 많이 거칠수록 사용자의 어플리케이션 사용도는 낮아집니다. 사용자가 목표에 도달하기까지 2~3단계 안에서 완료할 수 있도록 해야 합니다. 그 이상으로 넘어갈 시에는 사용자가 자신이 무엇을 위해 진행하고 있는지 잊을 가능성이 높기 때문입니다. 또한, 이전의 과정을 인지할 수 있도록 표현해야 합니다. 예를 들어, 상단 바에 이전 메뉴를 확인할 수 있도록 한다거나, 팝업창의 뒤에 명도를 낮춘 이전 단계 화면을 배치하는 등의 방법을 이용할 수 있도록 합니다.
-                </p>
-                <p class = "indent2 mx-4">
-                    강렬한 색(e.g. 빨간색)으로 이루어진 테마를 피하도록 한다. 강렬한 색으로 이루어진 테마는 눈의 피로가 크기 때문입니다. 보다 파장이 약한 색을 사용해야 합니다. 
-                </p>
-                <hr>
-                <h4 class = "article-title-font">3. UI 요구사항(Functional and UI requirements)</h4>
-                <strong><p class = "indent article-subtitle-font">3.1. 기능적 요구사항</p></strong>
-                <p class = "indent2 mx-4">     
-                    Momentrail은 앞서 언급한 듯이 장소와 날짜 두 가지 기준을 합쳐 사진을 분류할 수 있도록 합니다.  ‘장소 우선 모드’는 장소를 기준으로 사진을 분류 한 뒤, 각각 하위 폴더에 기준 기간 별로 정리하는 방식이며, ‘기간 우선 모드’는 기준 기간을 기준으로 사진을 분류한 뒤, 하위 폴더에 장소 별로 폴더화하는 방식입니다. 사용자가 기간을 선택할 수 있는 기능도 필요합니다. 월 / 주 / 일 세 가지 기간을 제시하여 사용자가 어떠한 시간 간격으로 분류할 지 선택할 수 있도록 합니다. 
-                </p>
-                <p class = "indent2 mx-4">     
-                    사용자는 앨범에 분류 기능이 부가 기능으로 붙어있는 방식을 선호합니다. 따라서, 앨범으로서의 기능이 필요합니다. 폴더를 보고, 탐색하고, 사진을 클릭하여 확대해서 볼 수 있는 기능을 제공할 수 있도록 합니다. 
-                </p>
-                <p class = "indent2 mx-4">     
-                    지도와 사진의 연동기능을 제공합니다. 특정 폴더를 기준으로 지정하면 해당 폴더에 포함된 사진들이 하나의 추억 단위가 됩니다. 화면 우측 섹션에 접을 수 있는 지도 탭을 배치하여 추억 단위 동안 이동한 경로를 핀으로 표현합니다
-                </p>
-                <strong><p class = "indent article-subtitle-font">3.2. 비기능적 요구사항</p></strong>
-                <p class="indent2 mx-4">
-                    다양한 어휘 사용 중에서, 같은 기능에 대해서는 같은 어휘를 사용할 수 있도록 합니다. 또한, 같은 기능에 대하여 다른 모양의 아이콘을 사용하지 않도록 합니다. 
-                </p>
-                <p class="indent2 mx-4">
-                    시각적 요소가 중요한 어플리케이션이기에, 색상의 선정도 중요합니다. 사진의 색채가 다양하기 때문에 테마는 무채색을 사용하여 사진에 집중할 수 있도록 합니다. 어플리케이션의 아이덴티티 컬러 또한 채도가 낮은 색을 선정하여 사용합니다.  
-                </p>
-                <hr>
-                <h4 class = "article-title-font">4. 사용자 시나리오</h4>
-                    <img src="../assets/4-2-1/scenario2/scenario2 (1).PNG" alt="" class = "scenario-image mb-2 mx-5">
-                    <img src="../assets/4-2-1/scenario2/scenario2 (2).PNG" alt="" class = "scenario-image mb-2 mx-5">
-                    <img src="../assets/4-2-1/scenario2/scenario2 (3).PNG" alt="" class = "scenario-image mb-2 mx-5">
-                    <img src="../assets/4-2-1/scenario2/scenario2 (4).PNG" alt="" class = "scenario-image mb-2 mx-5">
-                    <img src="../assets/4-2-1/scenario2/scenario2 (5).PNG" alt="" class = "scenario-image mb-2 mx-5">
-                    <img src="../assets/4-2-1/scenario2/scenario2 (6).PNG" alt="" class = "scenario-image mb-2 mx-5">
-                    <img src="../assets/4-2-1/scenario2/scenario2 (7).PNG" alt="" class = "scenario-image  mx-5">
-                <hr>
-                <h4 class = "article-title-font">5. Task Model</h4>
-                    <img src="../assets/4-2-1/taskmodel.png" alt="" class = "scenario-image  mx-5">
+        <div class = "row">
+            <div class = "col-xl-10 col-lg-10 mx-auto">     
+                <div class = "mx-4">
+                    <h2 class = "text-center mt-5">Momentrail; 여행자를 위한 사진 정리 어플리케이션</h2>
+                    <h2 class = "mt-5 article-title-font">1. 어플리케이션 개요</h2>
+                    <p class = "indent2 mx-4">
+                        Momentrail은 여행자를 위한 사진 정리 어플리케이션입니다. 여행을 갔다 온 뒤, 많은 사람들이 핸드폰 또는 카메라에 있는 사진을 컴퓨터에 옮겨서 저장합니다. 컴퓨터에 옮겨진 사진을 다시 날짜 또는 장소 별로 재분류해야 한다는 어려움에 착안하여 구상하였습니다. 사용자는 ‘기간 우선 모드’와 ‘장소 우선 모드’를 선택할 수 있습니다. 전자의 경우, 기간을 기준으로 정리한 상위 폴더 아래에 장소 별 하위 폴더가 존재하여, 하루에 여러 경로를 오간 여행자에게 적합합니다. 후자의 경우, 장소를 기준으로 정리한 상위 폴더 아래에 기간 별 하위 폴더가 존재하여, 한 장소에 오래 머문 여행자에게 적합합니다. 
+                    </p>
+
+                    <hr>
+
+                    <h2 class = "mt-5 article-title-font">2. 사용자 분석 / 조사 (User Analysis / Research)</h2>    
+                    <strong><p class = "indent article-subtitle-font">2.1. 대상 사용자(Target User)</p></strong>
+                    <p class = "indent2 mx-4">
+                        주요 사용자(Main User)는 여가를 위해 여행하는 일이 많은 사람, 20대 입니다. 부차적 사용자(Secondary User)는 가족과의 여행이 비교적 잦은 30대 부부입니다. 20대~30대는 디지털 기기 친밀도가 높습니다. 때문에, 사용자의 숙련도는 중급자(Intermediate)로 가정할 수 있습니다. 어플리케이션의 동작에서 가이드라인을 항상 제공할 필요는 없지만, 추후 진행 과정을 충분히 유추할 수 있는 형태로 제작해야 합니다. 
+                    </p>
+                    <strong><p class = "indent article-subtitle-font">2.2. 사용자 주요 요구사항(Major Direct User Requirement)</p></strong>
+                    <p class = "indent2 mx-4">
+                        여행을 갔다 온 사람들은 사진을 정리할 필요성에 느끼고 있었으나, 그 양이 방대해서 정리하기 부담스럽다는 생각을 합니다. 기존의 방식은 인물 / 장소 / 날짜의 방식이 존재한다. 인물 정리 방식에 대해서는 정확도가 떨어지기에 그 만족도가 낮습니다. 장소와 날짜의 경우, 정확도가 높다 만족도가 높았습니다. 
+                    </p>
+                    <p class = "indent2 mx-4">
+                        장소와 날짜 기준 분류 방식에는 크게 두 가지의 보완점이 요구되었습니다. 첫번째는 두 가지를 융합할 수 있으면 좋겠다는 의견이었습니다. 기존에는 둘 중에 한 가지 방식만 사용해서 여행했던 경로를 따라 추억을 떠올리기 힘들다는 의견이 있었습니다. 두번째로 요구된 사항은 폴더 간 사진 중복 등장의 방지였습니다. 아이폰의 앨범을 예로 들자면, 동일한 사진을 장소 폴더로 들어가도 볼 수 있으며, 일반 날짜 별 폴더에서도 볼 수 있습니다. 이렇듯 사진이 여러 곳에 중복하여 존재하는 경우, 메모리를 두 번 차지하는 것이 아닐지라도, 인지적 측면에서 사용자가 혼란을 느끼는 것으로 나타났습니다. 특정 사진을 찾을 때 찾아갈 수 있는 방식으로서 날짜 폴더와 장소 폴더 두 가지가 떠올라 선택의 과정을 거쳐야 하기 때문입니다.  
+                    </p>
+                    <strong><p class = "indent article-subtitle-font">2.3. 인지적, 인체 공학적 요구사항(Cognitive, ergonomic requirements)</p></strong>
+                    <p class = "indent2 mx-4">
+                        사용 단계를 많이 거칠수록 사용자의 어플리케이션 사용도는 낮아집니다. 사용자가 목표에 도달하기까지 2~3단계 안에서 완료할 수 있도록 해야 합니다. 그 이상으로 넘어갈 시에는 사용자가 자신이 무엇을 위해 진행하고 있는지 잊을 가능성이 높기 때문입니다. 또한, 이전의 과정을 인지할 수 있도록 표현해야 합니다. 예를 들어, 상단 바에 이전 메뉴를 확인할 수 있도록 한다거나, 팝업창의 뒤에 명도를 낮춘 이전 단계 화면을 배치하는 등의 방법을 이용할 수 있도록 합니다.
+                    </p>
+                    <p class = "indent2 mx-4">
+                        강렬한 색(e.g. 빨간색)으로 이루어진 테마를 피하도록 한다. 강렬한 색으로 이루어진 테마는 눈의 피로가 크기 때문입니다. 보다 파장이 약한 색을 사용해야 합니다. 
+                    </p>
+
+                    <hr>
+
+                    <h4 class = "article-title-font">3. UI 요구사항(Functional and UI requirements)</h4>
+                    <strong><p class = "indent article-subtitle-font">3.1. 기능적 요구사항</p></strong>
+                    <p class = "indent2 mx-4">     
+                        Momentrail은 앞서 언급한 듯이 장소와 날짜 두 가지 기준을 합쳐 사진을 분류할 수 있도록 합니다.  ‘장소 우선 모드’는 장소를 기준으로 사진을 분류 한 뒤, 각각 하위 폴더에 기준 기간 별로 정리하는 방식이며, ‘기간 우선 모드’는 기준 기간을 기준으로 사진을 분류한 뒤, 하위 폴더에 장소 별로 폴더화하는 방식입니다. 사용자가 기간을 선택할 수 있는 기능도 필요합니다. 월 / 주 / 일 세 가지 기간을 제시하여 사용자가 어떠한 시간 간격으로 분류할 지 선택할 수 있도록 합니다. 
+                    </p>
+                    <p class = "indent2 mx-4">     
+                        사용자는 앨범에 분류 기능이 부가 기능으로 붙어있는 방식을 선호합니다. 따라서, 앨범으로서의 기능이 필요합니다. 폴더를 보고, 탐색하고, 사진을 클릭하여 확대해서 볼 수 있는 기능을 제공할 수 있도록 합니다. 
+                    </p>
+                    <p class = "indent2 mx-4">     
+                        지도와 사진의 연동기능을 제공합니다. 특정 폴더를 기준으로 지정하면 해당 폴더에 포함된 사진들이 하나의 추억 단위가 됩니다. 화면 우측 섹션에 접을 수 있는 지도 탭을 배치하여 추억 단위 동안 이동한 경로를 핀으로 표현합니다
+                    </p>
+                    <strong><p class = "indent article-subtitle-font">3.2. 비기능적 요구사항</p></strong>
+                    <p class="indent2 mx-4">
+                        다양한 어휘 사용 중에서, 같은 기능에 대해서는 같은 어휘를 사용할 수 있도록 합니다. 또한, 같은 기능에 대하여 다른 모양의 아이콘을 사용하지 않도록 합니다. 
+                    </p>
+                    <p class="indent2 mx-4">
+                        시각적 요소가 중요한 어플리케이션이기에, 색상의 선정도 중요합니다. 사진의 색채가 다양하기 때문에 테마는 무채색을 사용하여 사진에 집중할 수 있도록 합니다. 어플리케이션의 아이덴티티 컬러 또한 채도가 낮은 색을 선정하여 사용합니다.  
+                    </p>
+
+                    <hr>
+
+                    <h4 class = "article-title-font">4. 사용자 시나리오</h4>
+                        <img src="../assets/4-2-1/scenario2/scenario2 (1).PNG" alt="" class = "scenario-image mb-2 mx-5">
+                        <img src="../assets/4-2-1/scenario2/scenario2 (2).PNG" alt="" class = "scenario-image mb-2 mx-5">
+                        <img src="../assets/4-2-1/scenario2/scenario2 (3).PNG" alt="" class = "scenario-image mb-2 mx-5">
+                        <img src="../assets/4-2-1/scenario2/scenario2 (4).PNG" alt="" class = "scenario-image mb-2 mx-5">
+                        <img src="../assets/4-2-1/scenario2/scenario2 (5).PNG" alt="" class = "scenario-image mb-2 mx-5">
+                        <img src="../assets/4-2-1/scenario2/scenario2 (6).PNG" alt="" class = "scenario-image mb-2 mx-5">
+                        <img src="../assets/4-2-1/scenario2/scenario2 (7).PNG" alt="" class = "scenario-image  mx-5">
+                    <hr>
+
+                    <h4 class = "article-title-font">5. Task Model</h4>
+                        <img src="../assets/4-2-1/taskmodel.png" alt="" class = "scenario-image  mx-5">
                 </div>
             </div>
         </div>
     </div>
-
+    
+    <footer class = "bg-dark">
+        <p class = "text-center text-white pt-5 mt-5 mb-1">Human Computer Interaction</p>
+        <p class = "text-center text-white mb-1">인간컴퓨터상호작용</p>
+        <p class = "text-center text-white pb-5" style = "margin: 0px;">2018-2R</p>
+    </footer>  
 </body>
 </html>
 

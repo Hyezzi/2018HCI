@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <!--font-->
+         <!--font-->
         <!--fontawesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <!--Bootstrap-->
@@ -70,25 +70,29 @@
     </nav>
     <!--/.Navbar-->
     <div class = "container-fluid" style = "width: 100%">
-        <div class = "row">
+        <div class = "row">       
             <div class = "col-xl-12 col-lg-12 px-0">
                 <div class = "py-5 background title-section d-flex flex-column align-items-center justify-content-center">
                     <h1 class = "mb-5">Human Computer Interaction</h1>
-                    <h5>181120_Assignment4-1-2</h5>
+                    <h5>181120_Assignment4-1-3</h5>
                     <h5>Draw GUI Element Trees</h5>
-                </div><canvas id="myCanvas" width = 1050 height = 1000></canvas>
+                </div>
             </div>
-
             <div class = "row">
-                <div class = "col-xl-10 col-lg-10 mx-auto">
-                    <canvas id="myCanvas" width = 1050 height = 1000></canvas>
+                <div class = "col-xl-10 col-lg-10 mx-auto mt-3">
+                    <canvas id="myCanvas" width = 1050 height = 1000 onclick = "getMousePosition(event)"></canvas>
                 </div>
             </div>
         </div>
     </div>
     
+    <footer class = "bg-dark">
+        <p class = "text-center text-white pt-5 mt-5 mb-1">Human Computer Interaction</p>
+        <p class = "text-center text-white mb-1">인간컴퓨터상호작용</p>
+        <p class = "text-center text-white pb-5" style = "margin: 0px;">2018-2R</p>
+    </footer> 
     
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         var canvasID = "myCanvas";    
         var id = 0;
@@ -98,19 +102,17 @@
         var lineLength = 50;
 
         var tree = new _Tree("window");
-        tree.add_node("button", 0, tree.search_BF);
-        tree.add_node("textbox", 0, tree.search_BF);
-        tree.add_node("pulldown", 1, tree.search_BF);
-        tree.add_node("pulldown", 2, tree.search_BF);
-        tree.delete_node(4, 2, tree.search_BF);
-        tree.add_node("button", 0, tree.search_BF);
-        tree.add_node("textbox", 5, tree.search_BF);
-        tree.add_node("pulldown", 5, tree.search_BF);
-        tree.add_node("window", 2, tree.search_BF);
+        tree.add_node("button", 0, tree.search_BF, 100, 120);
+        tree.add_node("textbox", 0, tree.search_BF, 300, 400);
+        tree.add_node("textbox", 1, tree.search_BF, 200, 300);
+        tree.add_node("button", 2, tree.search_BF, 100, 410);
+        tree.add_node("window", 3, tree.search_BF, 300, 20);
 
         //draw tree
         traverse4draw(tree);
 
+
+       
         /*Queue*/
         function _Queue() {
             this.q = []
@@ -135,15 +137,38 @@
             this.id = id;
             this.graphicElement = graphicElement;
             this.parent = null;
-            this.dot_x = 30;
-            this.dot_y = 30;
+            this.position_x = 0;
+            this.position_y = 0;
             this.children = [];
+
+            switch (graphicElement){
+                case "window" :
+                    this.width = max_node_width;
+                    this.height = max_node_height;
+                    break;
+                case "button" : 
+                    this.width = max_node_width;
+                    this.height = 100;
+                    break;
+                case "textbox" : 
+                    this.width = max_node_width;
+                    this.height = 30;
+                    break;
+                case "pulldown" : 
+                    this.width = max_node_width;
+                    this.height = 50;
+                    break;
+        }
+
+
         }
         
         function _Tree(graphicElement) {
             var node = new _Node(graphicElement);
             this._root = node;
+
             id += 1;
+
             
             this.search_BF = function(callback) {
 
@@ -177,7 +202,7 @@
                 traversal.call(this, callback);
             };
 
-            this.add_node = function(graphicElement, parentID, traversal) {
+            this.add_node = function(graphicElement, parentID, traversal, x, y) {
                 var child = new _Node(graphicElement),
                     parent = null,
                     callback = function(node) {
@@ -191,6 +216,8 @@
                 if (parent) {
                     parent.children.push(child);
                     child.parent = parent;
+                    child.position_x = x;
+                    child.position_y = y;
                     id += 1;
                 } else {
                     throw new Error('Cannot add node to a non-existent parent.');
@@ -257,13 +284,13 @@
                 for (var i = 0, length = currentTree.children.length; i < length; i++) {
                     queue.enqueue(currentTree.children[i]);
 
-                    //draw each children
-                    if(i != 0)
-                        currentTree.children[i].dot_x = currentTree.children[i-1].dot_x + max_node_width + 20;
-                    else
-                        currentTree.children[i].dot_x = currentTree.dot_x;
+                    // //draw each children
+                    // if(i != 0)
+                    //     currentTree.children[i].position_x = currentTree.children[i-1].position_x + max_node_width + 20;
+                    // else
+                    //     currentTree.children[i].position_x = currentTree.position_x;
                     
-                    currentTree.children[i].dot_y = currentTree.dot_y + max_node_height + lineLength;
+                    // currentTree.children[i].position_y = currentTree.position_y + max_node_height + lineLength;
 
                     drawGUI(currentTree.children[i]);                    
                 }
@@ -273,30 +300,19 @@
         };
 
         function drawGUI(node){
-         
-            var child_x = node.dot_x;
-            var child_y = node.dot_y;
-
-            //draw branch only if not root
-            if(node.id != 0){
-                var parent_x = node.parent.dot_x;
-                var parent_y = node.parent.dot_y;
-
-                draw_line(canvasID, child_x + max_node_width/2, child_y, parent_x + max_node_width/2, child_y - lineLength);    
-            }
-            
+    
             switch (node.graphicElement){
                 case "window" :
-                    create_window (canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, max_node_height);
+                    create_window (canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, node.position_x, node.position_y, max_node_width, max_node_height);
                     break;
                 case "button" : 
-                    create_button(canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, 100);
+                    create_button(canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, node.position_x, node.position_y, max_node_width, 100);
                     break;
                 case "textbox" : 
-                    create_textbox(canvasID,  `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, 30);
+                    create_textbox(canvasID,  `ID : ${node.id}\n Type : ${node.graphicElement}`, node.position_x, node.position_y, max_node_width, 30);
                     break;
                 case "pulldown" : 
-                    create_pulldown(canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, child_x, child_y, max_node_width, 50);
+                    create_pulldown(canvasID, `ID : ${node.id}\n Type : ${node.graphicElement}`, node.position_x, node.position_y, max_node_width, 50);
                     break;
             }
 
@@ -381,6 +397,7 @@
 
         }
 
+
         function create_pulldown(ID, pulldown_title, position_x, position_y, width, height){
             var canvas = document.getElementById(ID);
             var context = canvas.getContext('2d');
@@ -422,18 +439,85 @@
             
         }
 
-        function draw_line(ID, from_x, from_y, to_x, to_y){
-            var canvas = document.getElementById(ID);
-            var context = canvas.getContext('2d');
+        //get mouse position
+        function getMousePosition(e){
+            //console.log(e)
 
-            context.beginPath();
-            context.moveTo(from_x, from_y);
-            context.lineTo(to_x, to_y);
-            context.stroke();
-            context.closePath();
-        
+            var canvasOffset = $("#myCanvas")[0].getBoundingClientRect();
+            var canvasX=canvasOffset.left;
+            var canvasY=canvasOffset.top;
+            // console.log("캔버스x좌표 : "+ canvasX);
+            // console.log("캔버스y좌표 : " + canvasY);
+
+            mouseX=parseInt(e.clientX-canvasX);
+            mouseY=parseInt(e.clientY-canvasY);
+            // console.log("마우스x좌표 : " + mouseX);
+            // console.log("마우스y좌표 : " + mouseY);
+
+            //find upper node
+            var topNode = findUpperNode(mouseX, mouseY);
+
+            alert("마우스 x좌표 : " + mouseX + "\n마우스 y좌표 : " + mouseY +"\n\n"+ "ID : " + topNode.id + "\n"+ "ELEMENT TYPE : " + topNode.graphicElement + "\n"+"클릭했습니다 :)");
         }
-  
+        
+
+        function findUpperNode(mouseX, mouseY){
+            //get mouse click position and calculate the most upper one.
+            console.log("finding upper node...");
+
+            //1. get node that is under clicked position   
+            var searchQue = new _Queue();
+
+            searchQue.enqueue(tree._root);
+            currentTree = searchQue.dequeue();
+
+            var checkList = [];
+            
+            while(currentTree){
+                //console.log("current Tree : " + currentTree.id);
+                //console.log(checkPosition(mouseX, mouseY, currentTree));
+                if (checkPosition(mouseX, mouseY, currentTree)){
+                        checkList.push(currentTree);
+                        console.log(currentTree.id + "matches criteria")
+                }         
+
+                for (var i = 0, length = currentTree.children.length; i < length; i++) {
+                    searchQue.enqueue(currentTree.children[i]);
+                }
+
+                currentTree = searchQue.dequeue();
+            }
+
+
+
+            //2. find the most upper node
+            var topID = 0;
+            var topNode;
+
+            checkList.forEach((node)=>{
+                if(topID <= node.id){
+                    topID = node.id;
+                    topNode = node;
+                }
+            })
+            
+            return topNode;
+        }
+
+        function checkPosition(mouseX, mouseY, node){
+            var nodeX = node.position_x;
+            var nodeY = node.position_y;
+
+            if ((nodeX <= mouseX) && (mouseX <= (nodeX + node.width))){
+                if ((nodeY <= mouseY) && (mouseY <= (nodeY + node.height))){
+                    //console.log("true");
+                    return true;
+                }
+            }
+            else
+                return false;
+        }
+
     </script>
 </body>
 </html>
